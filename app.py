@@ -3,15 +3,16 @@ import google.generativeai as genai
 import PyPDF2
 
 # --- 1. CONFIGURACIÓN DE SEGURIDAD ---
-API_KEY = "AIzaSyAJcW2Bt7jAw2wbjoluBSno4aIGlzXUXUo" 
+API_KEY = st.secrets["GOOGLE_API_KEY"]
 genai.configure(api_key=API_KEY)
 
 # Instrucciones para que la IA actúe como un experto en Nano Banana Pro
 model = genai.GenerativeModel(
-    model_name="gemini-1.5-flash",
+    model_name="models/gemini-1.5-flash",
     system_instruction="Eres un experto en diseño de infografías literarias. Tu meta es crear prompts para 'Nano Banana Pro' que incluyan texto legible y diagramas claros."
 )
-
+# Si el anterior falla, usa el nombre completo del catálogo:
+# model_name="models/gemini-1.5-flash"
 # Función técnica para leer archivos PDF
 def leer_pdf(file):
     reader = PyPDF2.PdfReader(file)
