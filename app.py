@@ -8,7 +8,7 @@ genai.configure(api_key=API_KEY)
 
 # Instrucciones para que la IA actúe como un experto en Nano Banana Pro
 model = genai.GenerativeModel(
-    model_name="gemini-1.5-flash-latest",
+    model_name="gemini-1.5-flash",
     system_instruction="Eres un experto en diseño de infografías literarias. Tu meta es crear prompts para 'Nano Banana Pro' que incluyan texto legible y diagramas claros."
 )
 # Si el anterior falla, usa el nombre completo del catálogo:
