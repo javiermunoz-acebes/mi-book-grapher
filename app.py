@@ -8,7 +8,7 @@ genai.configure(api_key=API_KEY)
 
 # Instrucciones para que la IA actúe como un experto en Nano Banana Pro
 model = genai.GenerativeModel(
-    model_name="models/gemini-1.5-flash",
+    model_name="gemini-1.5-flash",
     system_instruction="Eres un experto en diseño de infografías literarias. Tu meta es crear prompts para 'Nano Banana Pro' que incluyan texto legible y diagramas claros."
 )
 # Si el anterior falla, usa el nombre completo del catálogo:
@@ -44,13 +44,13 @@ st.markdown("""
 # --- 3. FORMULARIO DE ENTRADA ---
 idioma = st.selectbox("Idioma del Texto en la Infografía", ["Español", "Inglés", "Francés"])
 
-tema = st.text_input("Tema Principal (Libro)", placeholder="Ej: El Ciclo de la Vida de una Rana")
+tema = st.text_input("Tema Principal (Libro)", placeholder="Ej: Introducción a la Filología Digital")
 
 col1, col2 = st.columns(2)
 with col1:
-    audiencia = st.text_input("Audiencia Objetivo", placeholder="Ej: Estudiantes de 5to Grado")
+    audiencia = st.text_input("Audiencia Objetivo", placeholder="Ej: Estudiantes Universitarios")
 with col2:
-    titulo_infog = st.text_input("Título de la Infografía", placeholder="Ej: DE HUEVO A RANA")
+    titulo_infog = st.text_input("Título de la Infografía", placeholder="Ej: Del texto al byte")
 
 # Sección de Importar Contenido
 st.write("### Contenido / Datos Clave")
