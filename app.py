@@ -12,7 +12,7 @@ model = genai.GenerativeModel(
     system_instruction="Eres un experto en diseño de infografías literarias. Tu meta es crear prompts para 'Nano Banana Pro' que incluyan texto legible y diagramas claros."
 )
 # Si el anterior falla, usa el nombre completo del catálogo:
-# model_name="models/gemini-1.5-flash"
+# model_name="gemini-1.5-flash"
 # Función técnica para leer archivos PDF
 def leer_pdf(file):
     reader = PyPDF2.PdfReader(file)
