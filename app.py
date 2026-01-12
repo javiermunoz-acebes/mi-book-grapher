@@ -95,3 +95,19 @@ if st.button("🚀 Generar Prompt Maestro", type="primary", use_container_width=
         st.subheader("Tu Prompt para Nano Banana Pro:")
         st.code(resultado.text)
         st.balloons()
+genai.configure(api_key=API_KEY)
+
+# --- BLOQUE DE DIAGNÓSTICO ---
+# Esto nos dirá en los logs qué modelos puede ver tu clave realmente
+print("Buscando modelos disponibles...")
+disponibles = [m.name for m in genai.list_models() if 'generateContent' in m.supported_generation_methods]
+print(f"Modelos que tu cuenta puede ver: {disponibles}")
+
+# Intentamos usar el primero de la lista si el flash falla
+try:
+    nombre_modelo = "gemini-1.5-flash"
+    model = genai.GenerativeModel(model_name=nombre_modelo)
+    print(f"Modelo {nombre_modelo} configurado exitosamente.")
+except Exception as e:
+    print(f"Error configurando {nombre_modelo}: {e}")
+# ------------------------------
